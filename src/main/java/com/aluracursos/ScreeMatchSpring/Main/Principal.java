@@ -3,7 +3,6 @@ package com.aluracursos.ScreeMatchSpring.Main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.aluracursos.ScreeMatchSpring.models.DatosSerie;
 import com.aluracursos.ScreeMatchSpring.models.DatosTemporada;
 import com.aluracursos.ScreeMatchSpring.service.ConsumoAPI;
@@ -28,6 +27,7 @@ public class Principal {
         var json = consumoAPI.getDatos( UrlBase + nombreSerie.replace(" ", "+") + apiKey);
 
         var datos = conversion.obtenerDatos(json,DatosSerie.class);
+        System.out.println(datos);
         
         // Buscar datos de todas las temporadas
         List<DatosTemporada> temporadas = new ArrayList<>();
