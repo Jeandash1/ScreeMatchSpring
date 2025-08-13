@@ -3,6 +3,8 @@ package com.aluracursos.ScreeMatchSpring.Main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.aluracursos.ScreeMatchSpring.models.DatosEpisodio;
 import com.aluracursos.ScreeMatchSpring.models.DatosSerie;
 import com.aluracursos.ScreeMatchSpring.models.DatosTemporada;
 import com.aluracursos.ScreeMatchSpring.service.ConsumoAPI;
@@ -36,7 +38,9 @@ public class Principal {
 			var datosTemporada = conversion.obtenerDatos(json, DatosTemporada.class);
 			temporadas.add(datosTemporada);
 		}
-		temporadas.forEach(System.out::println);
-        
+		//temporadas.forEach(System.out::println);
+
+        //obtene titulo de los capitulos x temporada usando lambda para recorrer todas las temporada (simplifica el ciclo for)
+        temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
     }
 }
